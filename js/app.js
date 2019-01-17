@@ -1,7 +1,15 @@
 // Registro del SW
 
+var url = window.location.href;
+var swLocation = '/twittor2/sw.js';
+
 if ( navigator.serviceWorker ) {
-    navigator.serviceWorker.register('/sw.js');
+
+    if ( url.includes('localhost') ) {
+        swLocation = '/sw.js';
+    }
+
+    navigator.serviceWorker.register( swLocation );
 }
 
 
